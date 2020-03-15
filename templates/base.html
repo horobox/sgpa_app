@@ -6,6 +6,7 @@
     <title>SGPA Calculator</title>
 </head>
 <body>
+    {%block body%}
     <form method='POST'>
     <label for="semester">Select your semester: </label>
     <select name="semester">
@@ -20,5 +21,7 @@
         <input type="submit" value="submit">
       </select>  
     </form>
+    {%endblock%}
+    {%block inputs%} {%endblock%}
 </body>
 </html>
