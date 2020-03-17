@@ -1,8 +1,19 @@
 {%block inputs%}
 <form method="POST">
+    <table>
+    <tr>
+        <th>Courses</th>
+        <th>Grade Points</th>
+        <th>Marks</th>
+    </tr>
     {%for key, value in Key.items()%}
-        <P>{{key}}, {{value}} <input type="text" name="marks"></P>
+        <tr>
+            <td>{{key}}</td> 
+            <td>{{value}}</td> 
+            <td><input type="text" name="{{loop.index}}"></td>
+        </tr>
     {%endfor%}
+    </table>
     <input type="submit" value="submit"/>
 </form>
 {%endblock%}

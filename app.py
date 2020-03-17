@@ -20,7 +20,13 @@ def input_marks(semester):
         Key = data[semester]
 
     if request.method == 'POST':
-        marks = request.form
+        marks_list = request.form
+        
+        marks = []
+        
+        for value in marks_list.values():
+            marks.append(int(value))
+
         return render_template('result.html', marks=marks)
     return render_template('input.html', Key=Key)
 
