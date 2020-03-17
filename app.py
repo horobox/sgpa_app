@@ -27,8 +27,20 @@ def input_marks(semester):
         for value in marks_list.values():
             marks.append(int(value))
 
-        return render_template('result.html', marks=marks)
+        return results(marks, list(Key.values()))
     return render_template('input.html', Key=Key)
+
+def results(marks, grade_points):
+    sgpa = 0
+    marks_credit = []
+
+    for i in range(0, len(marks)):
+        marks_credit.append(marks[i] // 10 + 1)
+
+    for i in range(0, len(marks)):
+        sgpa += marks_credit[i] * grade_points[i]
+    sgpa = round(sgpa / sum(grade_points), 3)
+    return render_template('result.html', sgpa=sgpa)
 
 if __name__ == "__main__":
 	app.run(debug=True)
